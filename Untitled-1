@@ -9,3 +9,13 @@
                   <button class="btn btn-facebook" type="submit"><i class="fa fa-facebook"></i> Facebook</button>
                   <button class="btn btn-twitter" type="submit"><i class="fa fa-twitter"></i> Twitter</button>
               </div>
+
+              <% course.forEach(function(cours){ %>
+                                                <p style="color: black"> <%=cours.name %> </p>
+                                                <% }); %>
+
+                                                <ul class="sub">
+                            <li><a  href="blank.html">Hostel Room Details</a></li>
+                            <li><a  href="login.html">Account Details</a></li>
+                            <li><a  href="lock_screen.html">Fine details</a></li>
+                        </ul>

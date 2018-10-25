@@ -24,12 +24,12 @@
                     <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
                 </div>
               <!--logo start-->
-              <a href="index.html" class="logo"><b> Student Dashboard IIIT-A</b></a>
+              <a href="/landing" class="logo"><b> Student Dashboard IIIT-A</b></a>
               <!--logo end-->
               
               <div class="top-menu">
                   <ul class="nav pull-right top-menu">
-                      <li><a class="logout" href="login.html">Logout</a></li>
+                      <li><a class="logout" href="/">Logout</a></li>
                   </ul>
               </div>
           </header>
@@ -44,32 +44,27 @@
                 <!-- sidebar menu start-->
                 <ul class="sidebar-menu" id="nav-accordion">
                 
-                      <p class="centered"><a href="profile.html"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-                      <h5 class="centered">Marcel Newman</h5>
+                      <p class="centered"><a href="profile.html"></a><img src="assets/img/martin.jpg" class="img-circle" width="60"></a></p>
+                      <h5 class="centered"> <%= std.roll %> </h5>
                           
                     <li class="mt">
-                        <a class="active" href="index.html">
+                        <a class="active" href="/landing">
                             <i class="fa fa-dashboard"></i>
                             <span>Dashboard</span>
                         </a>
                     </li>
   
                     <li class="sub-menu">
-                        <a href="javascript:;" >
+                        <a href="/contact">
                             <i class="fa fa-desktop"></i>
                             <span>Personal Details</span>
                         </a>
-                        <ul class="sub">
-                            <li><a  href="/qualifications">Qualification</a></li>
-                            <li><a  href="buttons.html">Address</a></li>
-                            <li><a  href="/contact">Contact Details</a></li>
-                        </ul>
                     </li>
   
                     <li class="sub-menu">
                         <a href="javascript:;" >
                             <i class="fa fa-cogs"></i>
-                            <span></span>
+                            <span>Utility</span>
                         </a>
                         <ul class="sub">
                             <li><a  href="calendar.html">Calendar</a></li>
@@ -80,13 +75,9 @@
                     <li class="sub-menu">
                         <a href="javascript:;" >
                             <i class="fa fa-book"></i>
-                            <span>Hostel Details</span>
+                            <span href="/hostelMess">Hostel Details</span>
                         </a>
-                        <ul class="sub">
-                            <li><a  href="blank.html">Hostel Room Details</a></li>
-                            <li><a  href="login.html">Account Details</a></li>
-                            <li><a  href="lock_screen.html">Fine details</a></li>
-                        </ul>
+                        
                     </li>
                     <li class="sub-menu">
                         <a href="javascript:;" >
@@ -141,12 +132,17 @@
                             <div class="col-md-4 col-sm-4 mb">
                                 <div class="white-panel pn donut-chart">
                                     <div class="white-header">
-                                        <h5>Personal Details</h5>
+                                        <h5 style="color:slateblue;" >Personal Details</h5>
                                     </div>
                                   <div class="row">
                                       <div class="col-sm-9 col-xs-6 goleft">
-                                          <p><b>Name :</b> Akash Dixit</p>
-                                          <p>Gender : Male</p>
+                                          <p style="color:black;"><b>Name :</b> <%=result.name %></p>
+                                          <p style="color:black;"><b>Current Semester :</b> <%=result.curr_sem %></p>
+                                          <p style="color:black;"><b>Branch :</b> <%=result.branch %></p>
+                                          <p style="color:black;"><b>Date of Birth :</b> <%=result.dob %></p>
+                                          <p style="color:black;"><b>Category :</b> <%=result.category %></p>
+                                          <p style="color:black;"><b>Gender :</b> <%=result.gender %></p>
+                                          
                                       </div>
                                     </div>
                                   
@@ -170,11 +166,13 @@
                             <div class="col-md-4 col-sm-4 mb">
                                 <div class="white-panel pn">
                                     <div class="white-header">
-                                        <h5>Courses</h5>
+                                        <h5 style="color :slateblue;">Courses</h5>
                                     </div>
                                   <div class="row">
                                       <div class="col-sm-6 col-xs-6 goleft">
-                                          
+                                        <% course.forEach(function(cours){ %>
+                                            <p style="color: black"> <b><%=cours.name %> :   <%=cours.credits %></b></p>
+                                            <% }); %>
                                       </div>
                                       <div class="col-sm-6 col-xs-6"></div>
                                     </div>
@@ -186,19 +184,16 @@
                               <!-- WHITE PANEL - TOP USER -->
                               <div class="white-panel pn">
                                   <div class="white-header">
-                                      <h5>TOP USER</h5>
+                                      <h5 style="color :slateblue;">Bank Details</h5>
                                   </div>
-                                  <p><img src="assets/img/ui-zac.jpg" class="img-circle" width="80"></p>
-                                  <p><b>Zac Snider</b></p>
                                   <div class="row">
-                                      <div class="col-md-6">
-                                          <p class="small mt">MEMBER SINCE</p>
-                                          <p>2012</p>
-                                      </div>
-                                      <div class="col-md-6">
-                                          <p class="small mt">TOTAL SPEND</p>
-                                          <p>$ 47,60</p>
-                                      </div>
+                                    <div class="col-sm-9 col-xs-6 goleft">
+                                        <p style="color:black;"><b>Account Holder :</b> <%=bank.name %></p>
+                                        <p style="color:black;"><b>Account No :</b> <%=bank.account_no %></p>
+                                        <p style="color:black;"><b>IFSC No :</b> <%=bank.ifsc %></p>
+                                        <p style="color:black;"><b>Bank Name :</b> <%=bank.bank_name %></p>
+                                        
+                                    </div>
                                   </div>
                               </div>
                           </div><!-- /col-md-4 -->
@@ -229,33 +224,38 @@
                                 <li><span>2.000</span></li>
                                 <li><span>0</span></li>
                             </ul>
+                            
                             <div class="bar">
                                 <div class="title">Sem 1st</div>
-                                <div class="value tooltips" data-original-title="8.500" data-toggle="tooltip" data-placement="top">74.4%</div>
+                                <div class="value tooltips" data-original-title="<%=cgpa.s1 %>" data-toggle="tooltip" data-placement="top"><%=cgpa.s1*10 %>%</div>
                             </div>
-                            <div class="bar ">
+                            <div class="bar">
                                 <div class="title">Sem 2nd</div>
-                                <div class="value tooltips" data-original-title="5.000" data-toggle="tooltip" data-placement="top">87.3%</div>
+                                <div class="value tooltips" data-original-title="<%=cgpa.s2 %>" data-toggle="tooltip" data-placement="top"><%=cgpa.s2*10 %>%</div>
                             </div>
-                            <div class="bar ">
+                            <div class="bar">
                                 <div class="title">Sem 3rd</div>
-                                <div class="value tooltips" data-original-title="6.000" data-toggle="tooltip" data-placement="top">64.8%</div>
+                                <div class="value tooltips" data-original-title="<%=cgpa.s3 %>" data-toggle="tooltip" data-placement="top"><%=cgpa.s3*10 %>%</div>
                             </div>
-                            <div class="bar ">
+                            <div class="bar">
                                 <div class="title">Sem 4th</div>
-                                <div class="value tooltips" data-original-title="4.500" data-toggle="tooltip" data-placement="top">80.5%</div>
+                                <div class="value tooltips" data-original-title="<%=cgpa.s4 %>" data-toggle="tooltip" data-placement="top"><%=cgpa.s4*10 %>%</div>
                             </div>
                             <div class="bar">
                                 <div class="title">Sem 5th</div>
-                                <div class="value tooltips" data-original-title="3.200" data-toggle="tooltip" data-placement="top">0%</div>
+                                <div class="value tooltips" data-original-title="<%=cgpa.s5 %>" data-toggle="tooltip" data-placement="top"><%=cgpa.s5*10 %>%</div>
                             </div>
-                            <div class="bar ">
+                            <div class="bar">
                                 <div class="title">Sem 6th</div>
-                                <div class="value tooltips" data-original-title="6.200" data-toggle="tooltip" data-placement="top">0%</div>
+                                <div class="value tooltips" data-original-title="<%=cgpa.s6 %>" data-toggle="tooltip" data-placement="top"><%=cgpa.s6*10 %>%</div>
                             </div>
                             <div class="bar">
                                 <div class="title">Sem 7th</div>
-                                <div class="value tooltips" data-original-title="7.500" data-toggle="tooltip" data-placement="top">0%</div>
+                                <div class="value tooltips" data-original-title="<%=cgpa.s7 %>" data-toggle="tooltip" data-placement="top"><%=cgpa.s7*10 %>%</div>
+                            </div>
+                            <div class="bar">
+                                <div class="title">Sem 8th</div>
+                                <div class="value tooltips" data-original-title="<%=cgpa.s8 %>" data-toggle="tooltip" data-placement="top"><%=cgpa.s8*10 %>%</div>
                             </div>
                             
                         </div>
