@@ -1,0 +1,383 @@
+<% include paartials/header %>
+<link href="assets/css/bootstrap.css" rel="stylesheet">
+    <!--external css-->
+    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="assets/css/zabuto_calendar.css">
+    <link rel="stylesheet" type="text/css" href="assets/js/gritter/css/jquery.gritter.css" />
+    <link rel="stylesheet" type="text/css" href="assets/lineicons/style.css">    
+    
+    <!-- Custom styles for this template -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/style-responsive.css" rel="stylesheet">
+
+    <script src="assets/js/chart-master/Chart.js"></script>
+    <script type="text/javascript">
+        window.history.forward();
+        function noBack() { window.history.forward(); }
+        </script>
+</head>
+<body  onload="noBack();" 
+onpageshow="if (event.persisted) noBack();" onunload="">
+<section id="container" >
+        <!-- **********************************************************************************************************************************************************
+        TOP BAR CONTENT & NOTIFICATIONS
+        *********************************************************************************************************************************************************** -->
+        <!--header start-->
+        <header class="header black-bg" style="background: #942242">
+                <div class="sidebar-toggle-box">
+                    <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+                </div>
+              <!--logo start-->
+              <a href="/landing" class="logo"><b> Indian Institute of Information Technology-Allahabad</b></a>
+              <!--logo end-->
+              
+              <div class="top-menu">
+                  <ul class="nav pull-right top-menu">
+                      <li><a class="logout" href="/">Logout</a></li>
+                  </ul>
+              </div>
+          </header>
+        <!--header end-->
+        
+        <!-- **********************************************************************************************************************************************************
+        MAIN SIDEBAR MENU
+        *********************************************************************************************************************************************************** -->
+        <!--sidebar start-->
+        <aside>
+            <div id="sidebar" style="background: indigo"  class="nav-collapse ">
+                <!-- sidebar menu start-->
+                <ul class="sidebar-menu" id="nav-accordion">
+                
+                      <p class="centered"><a href="profile.html"></a><img src="<%= result.image%>" class="img-circle" width="60"></a></p>
+                      <h5 class="centered"> <%= result.name %> </h5>
+                          
+                    <li class="mt">
+                        <a class="active" href="/landing">
+                            <i class="fa fa-dashboard"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+  
+                    <li class="sub-menu">
+                        <a href="/contact">
+                            <i class="fa fa-desktop"></i>
+                            <span>Personal Details</span>
+                        </a>
+                    </li>
+  
+                    <li class="sub-menu">
+                        <a>
+                            <i class="fa fa-cogs"></i>
+                            <span>Utility</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a  href="calendar.html">Marks</a></li>
+                            <li><a  href="/todo">Todo List</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="/hostelMess" >
+                            <i class="fa fa-book"></i>
+                            <span href="/hostelMess">Hostel Details</span>
+                        </a>
+                        
+                    </li>
+                    
+                    
+                    
+  
+                </ul>
+                <!-- sidebar menu end-->
+            </div>
+        </aside>
+        <!--sidebar end-->
+        
+        <!-- **********************************************************************************************************************************************************
+        MAIN CONTENT
+        *********************************************************************************************************************************************************** -->
+        <!--main content start-->
+        <section id="main-content">
+            <section class="wrapper">
+  
+                <div class="row">
+                    <div class="col-lg-9 main-chart">
+                    
+                    
+                        
+                        <div class="row mt">
+                        <!-- SERVER STATUS PANELS -->
+                            <div class="col-md-4 col-sm-4 mb">
+                                <div class="white-panel pn donut-chart">
+                                    <div class="white-header"style="background: #141415;">
+                                        <h5 style="color:white;" >Personal Details</h5>
+                                    </div>
+                                  <div class="row">
+                                      <div class="col-sm-9 col-xs-6 goleft">
+                                          <p style="color:black;"><b>Name :</b> <%=result.name %></p>
+                                          <p style="color:black;"><b>Current Semester :</b> <%=result.curr_sem %></p>
+                                          <p style="color:black;"><b>Branch :</b> <%=result.branch %></p>
+                                          <p style="color:black;"><b>Date of Birth :</b> <%=result.dob %></p>
+                                          <p style="color:black;"><b>Category :</b> <%=result.category %></p>
+                                          <p style="color:black;"><b>Gender :</b> <%=result.gender %></p>
+                                          
+                                      </div>
+                                    </div>
+                                  
+                                  <script>
+                                      var doughnutData = [
+                                              {
+                                                  value: 70,
+                                                  color:"#68dff0"
+                                              },
+                                              {
+                                                  value : 30,
+                                                  color : "#fdfdfd"
+                                              }
+                                          ];
+                                          var myDoughnut = new Chart(document.getElementById("serverstatus01").getContext("2d")).Doughnut(doughnutData);
+                                  </script>
+                                </div><! --/grey-panel -->
+                            </div><!-- /col-md-4-->
+                            
+  
+                            <div class="col-md-4 col-sm-4 mb">
+                                <div class="white-panel pn">
+                                    <div class="white-header" style="background: #141415;">
+                                        <h5 style="color :white;">Courses</h5>
+                                    </div>
+                                  <div class="row">
+                                      <div class="col-sm-6 col-xs-6 goleft">
+                                        <% course.forEach(function(cours){ %>
+                                            <p style="color: black"> <b><%=cours.name %> :   <%=cours.credits %></b></p>
+                                            <% }); %>
+                                      </div>
+                                      <div class="col-sm-6 col-xs-6"></div>
+                                    </div>
+                                    
+                                </div>
+                            </div><!-- /col-md-4 -->
+                            
+                          <div class="col-md-4 mb">
+                              <!-- WHITE PANEL - TOP USER -->
+                              <div class="white-panel pn">
+                                  <div class="white-header" style="background: #141415;">
+                                      <h5 style="color :white;">Bank Details</h5>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-sm-9 col-xs-6 goleft">
+                                        <p style="color:black;"><b>Account Holder :</b> <%=bank.name %></p>
+                                        <p style="color:black;"><b>Account No :</b> <%=bank.account_no %></p>
+                                        <p style="color:black;"><b>IFSC No :</b> <%=bank.ifsc %></p>
+                                        <p style="color:black;"><b>Bank Name :</b> <%=bank.bank_name %></p>
+                                        
+                                    </div>
+                                  </div>
+                              </div>
+                          </div><!-- /col-md-4 -->
+                            
+  
+                      </div><!-- /row -->
+                      
+                                      
+                      
+                          
+                          
+                          
+                          
+                          
+                     
+                      
+                      <div class="row mt">
+                        <!--CUSTOM CHART START -->
+                        <div class="border-head">
+                            <h3>Performance</h3>
+                        </div>
+                        <div class="custom-bar-chart">
+                            <ul class="y-axis">
+                                <li><span>10.000</span></li>
+                                <li><span>8.000</span></li>
+                                <li><span>6.000</span></li>
+                                <li><span>4.000</span></li>
+                                <li><span>2.000</span></li>
+                                <li><span>0</span></li>
+                            </ul>
+                            
+                            <div class="bar">
+                                <div class="title">Sem 1st</div>
+                                <div class="value tooltips" data-original-title="<%=cgpa.s1 %>" data-toggle="tooltip" data-placement="top"><%=cgpa.s1*10 %>%</div>
+                            </div>
+                            <div class="bar">
+                                <div class="title">Sem 2nd</div>
+                                <div class="value tooltips" data-original-title="<%=cgpa.s2 %>" data-toggle="tooltip" data-placement="top"><%=cgpa.s2*10 %>%</div>
+                            </div>
+                            <div class="bar">
+                                <div class="title">Sem 3rd</div>
+                                <div class="value tooltips" data-original-title="<%=cgpa.s3 %>" data-toggle="tooltip" data-placement="top"><%=cgpa.s3*10 %>%</div>
+                            </div>
+                            <div class="bar">
+                                <div class="title">Sem 4th</div>
+                                <div class="value tooltips" data-original-title="<%=cgpa.s4 %>" data-toggle="tooltip" data-placement="top"><%=cgpa.s4*10 %>%</div>
+                            </div>
+                            <div class="bar">
+                                <div class="title">Sem 5th</div>
+                                <div class="value tooltips" data-original-title="<%=cgpa.s5 %>" data-toggle="tooltip" data-placement="top"><%=cgpa.s5*10 %>%</div>
+                            </div>
+                            <div class="bar">
+                                <div class="title">Sem 6th</div>
+                                <div class="value tooltips" data-original-title="<%=cgpa.s6 %>" data-toggle="tooltip" data-placement="top"><%=cgpa.s6*10 %>%</div>
+                            </div>
+                            <div class="bar">
+                                <div class="title">Sem 7th</div>
+                                <div class="value tooltips" data-original-title="<%=cgpa.s7 %>" data-toggle="tooltip" data-placement="top"><%=cgpa.s7*10 %>%</div>
+                            </div>
+                            <div class="bar">
+                                <div class="title">Sem 8th</div>
+                                <div class="value tooltips" data-original-title="<%=cgpa.s8 %>" data-toggle="tooltip" data-placement="top"><%=cgpa.s8*10 %>%</div>
+                            </div>
+                            
+                        </div>
+                        <!--custom chart end-->
+                      </div><!-- /row -->	
+                      <div class="row mt">
+                            <!--CUSTOM CHART START -->
+                            <div class="border-head">
+                                <h3>Attendance</h3>
+                            </div>
+                            <div class="custom-bar-chart">
+                                <ul class="y-axis">
+                                    <li><span>100.00</span></li>
+                                    <li><span>80.00</span></li>
+                                    <li><span>60.00</span></li>
+                                    <li><span>40.00</span></li>
+                                    <li><span>20.00</span></li>
+                                    <li><span>0</span></li>
+                                </ul>
+                                
+                                <div class="bar">
+                                    <div class="title">ISOE532C</div>
+                                    <div class="value tooltips" data-original-title="<%=attend[0].present %>/<%=attend[0].total %>" data-toggle="tooltip" data-placement="top"><%=attend[0].present/attend[0].total*100 %>%</div>
+                                </div>
+                                <div class="bar">
+                                        <div class="title">IGVC532C</div>
+                                        <div class="value tooltips" data-original-title="<%=attend[1].present %>/<%=attend[1].total %>" data-toggle="tooltip" data-placement="top"><%=attend[1].present/attend[1].total*100 %>%</div>
+                                </div>
+                                <div class="bar">
+                                        <div class="title">MPOE530C</div>
+                                        <div class="value tooltips" data-original-title="<%=attend[2].present %>/<%=attend[2].total %>" data-toggle="tooltip" data-placement="top"><%=attend[2].present/attend[2].total*100 %>%</div>
+                                    </div>
+                                    <div class="bar">
+                                            <div class="title">ICNW532C</div>
+                                            <div class="value tooltips" data-original-title="<%=attend[3].present %>/<%=attend[3].total %>" data-toggle="tooltip" data-placement="top"><%=attend[3].present/attend[3].total*100 %>%</div>
+                                    </div>
+                                    <div class="bar">
+                                            <div class="title">IAIN532C</div>
+                                            <div class="value tooltips" data-original-title="<%=attend[4].present %>/<%=attend[4].total %>" data-toggle="tooltip" data-placement="top"><%=attend[4].present/attend[4].total*100 %>%</div>
+                                    </div>
+                                                                        
+                            </div>
+                            <!--custom chart end-->
+                          </div><!-- /row -->	
+                          
+                    </div><!-- /col-lg-9 END SECTION MIDDLE -->
+                    
+                    
+        <!-- **********************************************************************************************************************************************************
+        RIGHT SIDEBAR CONTENT
+        *********************************************************************************************************************************************************** -->                  
+                    
+                    <div class="col-lg-3 ds">
+                         
+  
+                          <!-- CALENDAR-->
+                          <div id="calendar" class="mb">
+                              <div class="panel green-panel no-margin">
+                                  <div class="panel-body">
+                                      <div id="date-popover" class="popover top" style="cursor: pointer; disadding: block; margin-left: 33%; margin-top: -50px; width: 175px;">
+                                          <div class="arrow"></div>
+                                          <h3 class="popover-title" style="disadding: none;"></h3>
+                                          <div id="date-popover-content" class="popover-content"></div>
+                                      </div>
+                                      <div id="my-calendar"></div>
+                                  </div>
+                              </div>
+                          </div><!-- / calendar -->
+                        
+                    </div><!-- /col-lg-3 -->
+                </div><! --/row -->
+            </section>
+        </section>
+  
+        <!--main content end-->
+        <!--footer start-->
+        <footer class="site-footer">
+            <div class="text-center">
+                    <h4>For any queries Contact AAA-Indian Institute of Information Technology, Allahabad</h4>
+                    <a href="index.html#" class="go-top">
+                    <i class="fa fa-angle-up"></i>
+                </a>
+            </div>
+        </footer>
+        <!--footer end-->
+    </section>
+  
+      <!-- js placed at the end of the document so the pages load faster -->
+      <script src="assets/js/jquery.js"></script>
+      <script src="assets/js/jquery-1.8.3.min.js"></script>
+      <script src="assets/js/bootstrap.min.js"></script>
+      <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
+      <script src="assets/js/jquery.scrollTo.min.js"></script>
+      <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+      <script src="assets/js/jquery.sparkline.js"></script>
+  
+  
+      <!--common script for all pages-->
+      <script src="assets/js/common-scripts.js"></script>
+      
+      <script type="text/javascript" src="assets/js/gritter/js/jquery.gritter.js"></script>
+      <script type="text/javascript" src="assets/js/gritter-conf.js"></script>
+  
+      <!--script for this page-->
+      <script src="assets/js/sparkline-chart.js"></script>    
+      <script src="assets/js/zabuto_calendar.js"></script>	
+      
+      
+      
+      <script type="application/javascript">
+          $(document).ready(function () {
+              $("#date-popover").popover({html: true, trigger: "manual"});
+              $("#date-popover").hide();
+              $("#date-popover").click(function (e) {
+                  $(this).hide();
+              });
+          
+              $("#my-calendar").zabuto_calendar({
+                  action: function () {
+                      return myDateFunction(this.id, false);
+                  },
+                  action_nav: function () {
+                      return myNavFunction(this.id);
+                  },
+                  ajax: {
+                      url: "show_data.php?action=1",
+                      modal: true
+                  },
+                  legend: [
+                      {type: "text", label: "Special event", badge: "00"},
+                      {type: "block", label: "Regular event", }
+                  ]
+              });
+          });
+          
+          
+          function myNavFunction(id) {
+              $("#date-popover").hide();
+              var nav = $("#" + id).data("navigation");
+              var to = $("#" + id).data("to");
+              console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
+          }
+      </script>
+    
+  
+
+
+<% include paartials/footer %>
