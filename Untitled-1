@@ -19,3 +19,11 @@
                             <li><a  href="login.html">Account Details</a></li>
                             <li><a  href="lock_screen.html">Fine details</a></li>
                         </ul>
+
+
+
+
+            <a href="javascript:;" >
+                            <i class="fa fa-book"></i>
+                            <span href="/hostelMess">Hostel Details</span>
+                        </a>

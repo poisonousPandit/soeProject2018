@@ -24,7 +24,7 @@
                     <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
                 </div>
               <!--logo start-->
-              <a href="/landing" class="logo"><b> Student Dashboard IIIT-A</b></a>
+              <a href="/landing" class="logo"><b>Indian Institute of Information Technology-Allahabad</b></a>
               <!--logo end-->
               
               <div class="top-menu">
@@ -44,80 +44,245 @@
                 <!-- sidebar menu start-->
                 <ul class="sidebar-menu" id="nav-accordion">
                 
-                      <p class="centered"><a href="profile.html"></a><img src="assets/img/martin.jpg" class="img-circle" width="60"></a></p>
-                      <h5 class="centered"> <%= std.roll %> </h5>
+                      <p class="centered"><a href="profile.html"></a><img src="<%=result.image%>" class="img-circle" width="60"></a></p>
+                      <h5 class="centered"> <%= result.name %> </h5>
                           
-                    <li class="mt">
-                        <a  href="/landing">
-                            <i class="fa fa-dashboard"></i>
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
-  
-                    <li class="sub-menu">
-                        <a class="active" href="/contact">
-                            <i class="fa fa-desktop"></i>
-                            <span>Personal Details</span>
-                        </a>
-                    </li>
-  
-                    <li class="sub-menu">
-                        <a href="javascript:;" >
-                            <i class="fa fa-cogs"></i>
-                            <span>Utility</span>
-                        </a>
-                        <ul class="sub">
-                            <li><a  href="calendar.html">Calendar</a></li>
-                            <li><a  href="gallery.html">Gallery</a></li>
-                            <li><a  href="todo_list.html">Todo List</a></li>
-                        </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="javascript:;" >
-                            <i class="fa fa-book"></i>
-                            <span href="/hostelMess">Hostel Details</span>
-                        </a>
+                      <li class="mt">
+                            <a  href="/landing">
+                                <i class="fa fa-dashboard"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+      
+                        <li class="sub-menu">
+                            <a class="active" href="/contact">
+                                <i class="fa fa-desktop"></i>
+                                <span>Personal Details</span>
+                            </a>
+                        </li>
+      
+                        <li class="sub-menu">
+                            <a>
+                                <i class="fa fa-cogs"></i>
+                                <span>Utility</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a  href="/marks">Marks</a></li>
+                                
+                                <li><a  href="/todo">Todo List</a></li>
+                            </ul>
+                        </li>
+                        <li class="sub-menu">
+                            <a  href="/hostelMess">
+                                <i class="fa fa-desktop"></i>
+                                <span>Hostel Details</span>
+                            </a>
+                            
+                        </li>
                         
-                    </li>
-                    <li class="sub-menu">
-                        <a href="javascript:;" >
-                            <i class="fa fa-tasks"></i>
-                            <span>Forms</span>
-                        </a>
-                        <ul class="sub">
-                            <li><a  href="form_component.html">Form Components</a></li>
-                        </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="javascript:;" >
-                            <i class="fa fa-th"></i>
-                            <span>Data Tables</span>
-                        </a>
-                        <ul class="sub">
-                            <li><a  href="basic_table.html">Basic Table</a></li>
-                            <li><a  href="responsive_table.html">Responsive Table</a></li>
-                        </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="javascript:;" >
-                            <i class=" fa fa-bar-chart-o"></i>
-                            <span>Charts</span>
-                        </a>
-                        <ul class="sub">
-                            <li><a  href="morris.html">Morris</a></li>
-                            <li><a  href="chartjs.html">Chartjs</a></li>
-                        </ul>
-                    </li>
   
                 </ul>
                 <!-- sidebar menu end-->
             </div>
         </aside>
         <!--sidebar end-->
+
+
+
         <section id="main-content">
             <section class="wrapper">
-  
-        <h1>Hello world</h1>
+                <h3><i class="fa fa-angle-right"></i> Personal & Contact Details </h3>
+              <div class="row">
+                        <div class="col-md-12 mt">
+                            <div class="form-panel">
+                                <h4 class="mb"><i class="fa fa-angle-right"></i> Personal Details</h4>
+                                <form class="form-horizontal style-form" action="/contact" method="POST">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 col-sm-2 control-label">Father's Name :</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" id="disabledInput" type="text" name="father" 
+                                                required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 col-sm-2 control-label">Mother's Name :</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" id="disabledInput" type="text" name="mother" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 col-sm-2 control-label">Personal E-mail:</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" id="disabledInput" type="text" name="email"  required>
+                                        </div>
+                                    </div>
+                                    
+                              
+    
+                
+                                <h4 class="mb"><i class="fa fa-angle-right"></i> Contact Details</h4>
+                                
+                                    <div class="form-group">
+                                        <label class="col-sm-2 col-sm-2 control-label">Mobile Number :</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" id="disabledInput" type="text" name="mobileNo"
+                                            required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 col-sm-2 control-label">Parent/Guardian Mobile Number :</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" id="disabledInput" type="text" name="parentMobile" 
+                                            required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 col-sm-2 control-label">Address :</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" id="disabledInput" type="text" name="address" 
+                                            required>
+                                        </div>
+                                    </div>
+                                    
+                                
+    
+            
+    
+   
+      
+            
+                        <h4 class="mb"><i class="fa fa-angle-right"></i> High School Details</h4>
+                        
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label">School Name :</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" id="disabledInput" type="text" name="hs_sc_name" 
+                                    required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label">School Address:</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" name="hs_sc_address" id="disabledInput" type="text" 
+                                    required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label">Affliated Board :</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" id="disabledInput" name="hs_aff_board" type="text" 
+                                    required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label">CGPA / Percentage : </label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" id="disabledInput" type="text" name="hs_cg" required>
+                                </div>
+                            </div>
+            
+                        
+    
+            
+                        <h4 class="mb"><i class="fa fa-angle-right"></i> Intermediate School Details</h4>
+                       
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label">School Name :</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" id="disabledInput" type="text" name="int_sc_name" 
+                                    required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label">School Address:</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" id="disabledInput" type="text" name="int_sc_address" 
+                                    required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label">Affliated Board :</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" id="disabledInput" type="text" name="int_aff_board" 
+                                    required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label">CGPA / Percentage : </label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" id="disabledInput" type="text" name="int_cg" 
+                                    required>
+                                </div>
+                            </div>
+            
+                        
+    
+        
+            
+                        <h4 class="mb"><i class="fa fa-angle-right"></i> Qualifying Exam Details</h4>
+                       
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label">Exam Name :</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" id="disabledInput" type="text" name="qual_exam" 
+                                    required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label">Roll Number :</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" id="disabledInput" type="text" name="qual_roll" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label">Rank : </label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" id="disabledInput" type="text" name="qual_rank" required>
+                                </div>
+                            </div>
+                            <button class="button">Submit</button>
+                                    <style>
+                                        .button {
+                                            background-color: #FA8072;
+                                            border: none;
+                                            color: white;
+                                            padding: 15px 32px;
+                                            text-align: center;
+                                            text-decoration: none;
+                                            display: inline-block;
+                                            font-size: 16px;
+                                            margin-left: 440px;
+                                            margin-right: auto;
+                                            cursor: pointer; 
+                                            border-radius: 5px;                           
+                                        }
+                                        </style>
+                        </form>
+                    </div>
+                </div><!-- col-lg-12-->
+            </div><!-- row -->
+    
+    </section>
+    
+            <! --/wrapper -->
+        </section><!-- /MAIN CONTENT -->
+        
+
+
+
+        
+        <!--main content end-->
+        <!--footer start-->
+        <footer class="site-footer">
+            <div class="text-center">
+                    <h4>For any queries Contact AAA-Indian Institute of Information Technology, Allahabad</h4>
+
+                <a href="basic_table.html#" class="go-top">
+                    <i class="fa fa-angle-up"></i>
+                </a>
+            </div>
+        </footer>
+        <!--footer end-->
         </section>
-        </section>
+    
 <% include paartials/footer %>

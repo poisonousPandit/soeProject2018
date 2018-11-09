@@ -214,14 +214,14 @@ hr {
 }
 
 ul.top-menu > li > .logout {
-	color: #f2f2f2;
+	color: #EA8BC0;
 	font-size: 12px;
 	border-radius: 4px;
 	-webkit-border-radius: 4px;
 	border: 1px solid #64c3c2 !important;
 	padding: 5px 15px;
 	margin-right: 15px;
-	background: #68dff0;
+	background:#17A589;
 	margin-top: 15px;
 }
 
@@ -468,7 +468,7 @@ a.logo span {
 }
 
 ul.top-menu > li > a {
-    color: #666666;
+    color: #00ff7f;
     font-size: 16px;
     border-radius: 4px;
     -webkit-border-radius: 4px;
